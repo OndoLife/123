@@ -27,7 +27,9 @@ span{
     justify-content: center;
     font-size: 60px;
     background: linear-gradient(to right, #ff5fa8,#d427b2,#795ff7);   
+    background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
@@ -85,7 +87,9 @@ section {
 
 strong{
     background: linear-gradient(to right, #d62828,#990d6f);   
+    background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     font-size:30px;
     font-weight:900;
@@ -93,14 +97,18 @@ strong{
 
 b{
     background: linear-gradient(to right, #890d99,#2b409c);   
+    background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     font-size:30px;
     font-weight:900;
 }
 label{
     background: linear-gradient(to right, #0d9099,#2b9c44);   
+    background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     font-size:30px;
     font-weight:900;
@@ -113,7 +121,9 @@ a{
 
 a:hover{
     background: linear-gradient(to right, #ff5fa8,#d427b2,#795ff7);   
+    background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
     font-weight: 600;
 }
