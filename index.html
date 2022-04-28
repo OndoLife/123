@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,81 +9,170 @@
     <title>韩服游戏代充</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="123.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <script>
-        var date = new Date();
-        var month = date.getMonth()+1;
-        var day = date.getDate();
-        var currenYear = date.getFullYear();
 
-        var 汇率
-        汇率 = +prompt("1人民币=?韩元");
-        汇率 = Math.floor(汇率);
-        
-                while(isNaN(汇率) || 汇率 == 0){
-            汇率 = +prompt("请输入正确的汇率！")
-        }
 
-        var 四十万 = 400000
-        var 三十万 = 300000
-        var 二十万 = 200000
-        var 十万 = 100000
-        var 五万 = 50000
-        var 三万 = 30000
+        <script>
+            $.ajax({
+                method: "GET",
+                url: "https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWCNY",
+                data: { CUR_CD: "CNY" }
+            })
+                .done(function (msg) {
+    
+                    var date = new Date();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var currenYear = date.getFullYear();
+                    
+                    var 实时汇率 = msg[0].basePrice;
+    
+                    console.log("实时汇率:1人民币="+实时汇率+"韩元__数据来自하나은행 환율API");
+                    汇率=Math.floor(实时汇率);
+    
+                    var 四十万 = 400000
+            var 三十万 = 300000
+            var 二十万 = 200000
+            var 十万 = 100000
+            var 五万 = 50000
+            var 三万 = 30000
+    
+            var 四十万汇率 = Math.round(四十万 / 汇率)
+            var 三十万汇率 = Math.round(三十万 / 汇率)
+            var 二十万汇率 = Math.round(二十万 / 汇率)
+            var 十万汇率 = Math.round(十万 / 汇率)
+            var 五万汇率 = Math.round(五万 / 汇率)
+            var 三万汇率 = Math.round(三万 / 汇率)
+    
+            var 四十万价格 = Math.round((四十万 * 0.10 + 四十万) / 汇率)
+            var 三十万价格 = Math.round((三十万 * 0.10 + 三十万) / 汇率)
+            var 二十万价格 = Math.round((二十万 * 0.10 + 二十万) / 汇率)
+            var 十万价格 = Math.round((十万 * 0.10 + 十万) / 汇率)
+            var 五万价格 = Math.round((五万 * 0.15 + 五万) / 汇率)
+            var 三万价格 = Math.round((三万 * 0.15 + 三万) / 汇率)
+    
+            var 四十万利润 = 四十万价格 - 四十万汇率
+            var 三十万利润 = 三十万价格 - 三十万汇率
+            var 二十万利润 = 二十万价格 - 二十万汇率
+            var 十万利润 = 十万价格 - 十万汇率
+            var 五万利润 = 五万价格 - 五万汇率
+            var 三万利润 = 三万价格 - 三万汇率
+    
+            var 四十万分成 = 四十万利润 / 2
+            var 三十万分成 = 三十万利润 / 2
+            var 二十万分成 = 二十万利润 / 2
+            var 十万分成 = 十万利润 / 2
+            var 五万分成 = 五万利润 / 2
+            var 三万分成 = 三万利润 / 2
+    
+            var 最终四十万 = 四十万价格 - 四十万分成
+            var 最终三十万 = 三十万价格 - 三十万分成
+            var 最终二十万 = 二十万价格 - 二十万分成
+            var 最终十万 = 十万价格 - 十万分成
+            var 最终五万 = 五万价格 - 五万分成
+            var 最终三万 = 三万价格 - 三万分成
+    
+                    document.getElementById('header1').innerHTML="当前日期: "+currenYear + "年" + month + "月" + day + "日, 今日汇率: 1人民币="+汇率+"韩元";
+    
+                    document.getElementById('s40').innerHTML="40w代充价格: " + 四十万价格 + "元";
+                    document.getElementById('p40').innerHTML="利润: " + 四十万利润 + "元 / 分成: " + 四十万分成 + "元";
+                    document.getElementById('m40').innerHTML="结算: " + 最终四十万 + "元";
+    
+                    document.getElementById('s30').innerHTML="30w代充价格: " + 三十万价格 + "元";
+                    document.getElementById('p30').innerHTML="利润: " + 三十万利润 + "元 / 分成: " + 三十万分成 + "元";
+                    document.getElementById('m30').innerHTML="结算: " + 最终三十万 + "元";
+    
+                    document.getElementById('s20').innerHTML="20w代充价格: " + 二十万价格 + "元";
+                    document.getElementById('p20').innerHTML="利润: " + 二十万利润 + "元 / 分成: " + 二十万分成 + "元";
+                    document.getElementById('m20').innerHTML="结算: " + 最终二十万 + "元";
+    
+                    document.getElementById('s10').innerHTML="10w代充价格: " + 十万价格 + "元";
+                    document.getElementById('p10').innerHTML="利润: " + 十万利润 + "元 / 分成: " + 十万分成 + "元";
+                    document.getElementById('m10').innerHTML="结算: " + 最终十万 + "元";
+    
+                    document.getElementById('s5').innerHTML="5w代充价格: " + 五万价格 + "元";
+                    document.getElementById('p5').innerHTML="利润: " + 五万利润 + "元 / 分成: " + 五万分成 + "元";
+                    document.getElementById('m5').innerHTML="结算: " + 最终五万 + "元";
+    
+                    document.getElementById('s3').innerHTML="3w代充价格: " + 三万价格 + "元";
+                    document.getElementById('p3').innerHTML="利润: " + 三万利润 + "元 / 分成: " + 三万分成 + "元";
+                    document.getElementById('m3').innerHTML="结算: " + 最终三万 + "元";
+    
+                    console.log("40w韩元 = " + 四十万汇率 + "元");
+                    console.log("30w韩元 = " + 三十万汇率 + "元");
+                    console.log("20w韩元 = " + 二十万汇率 + "元");
+                    console.log("10w韩元 = " + 十万汇率 + "元");
+                    console.log("5w韩元 = " + 五万汇率 + "元");
+                    console.log("3w韩元 = " + 三万汇率 + "元");
+    
+            });
+            
+        </script>
+    
 
-        var 四十万汇率 = Math.round(四十万 / 汇率)
-        var 三十万汇率 = Math.round(三十万 / 汇率)
-        var 二十万汇率 = Math.round(二十万 / 汇率)
-        var 十万汇率 = Math.round(十万 / 汇率)
-        var 五万汇率 = Math.round(五万/ 汇率)
-        var 三万汇率 = Math.round(三万 / 汇率)
 
-        var 四十万价格 = Math.round((四十万 * 0.10 + 四十万) / 汇率)
-        var 三十万价格 = Math.round((三十万 * 0.10 + 三十万) / 汇率)
-        var 二十万价格 = Math.round((二十万 * 0.10 + 二十万) / 汇率)
-        var 十万价格 = Math.round((十万 * 0.10 + 十万) / 汇率)
-        var 五万价格 = Math.round((五万 * 0.15 + 五万) / 汇率)
-        var 三万价格 = Math.round((三万 * 0.15 + 三万) / 汇率)
-
-        var 四十万利润 = 四十万价格 - 四十万汇率
-        var 三十万利润 = 三十万价格 - 三十万汇率
-        var 二十万利润 = 二十万价格 - 二十万汇率
-        var 十万利润 = 十万价格 - 十万汇率
-        var 五万利润 = 五万价格 - 五万汇率
-        var 三万利润 = 三万价格 - 三万汇率
-
-        var 四十万分成 = 四十万利润 / 2
-        var 三十万分成 = 三十万利润 / 2
-        var 二十万分成 = 二十万利润 / 2
-        var 十万分成 = 十万利润 / 2
-        var 五万分成 = 五万利润 / 2
-        var 三万分成 = 三万利润 / 2
-
-        var 最终四十万 = 四十万价格 - 四十万分成
-        var 最终三十万 = 三十万价格 - 三十万分成
-        var 最终二十万 = 二十万价格 - 二十万分成
-        var 最终十万 = 十万价格 - 十万分成
-        var 最终五万 = 五万价格 - 五万分成
-        var 最终三万 = 三万价格 - 三万分成
-
-        document.write("<layout><header><span>韩服游戏代充</span>当前日期: "+currenYear+"年"+month+"月"+day+"日,  今日汇率: 1人民币="+汇率+"韩元</header>"
-            +"<div><nav><strong>40w代充价格: "+四十万价格+"元</strong> <p> 利润: "+四十万利润+"元 / 分成: "+四十万分成+"元 <br> 结算: "+最终四十万+"元</nav>"
-            +"<nav><strong>30w代充价格: "+三十万价格+"元</strong> <p> 利润: "+三十万利润+"元 / 分成: "+三十万分成+"元 <br>  结算: "+最终三十万+"元</nav></div>"
-            +"<div><main><b>20w代充价格: "+二十万价格+"元</b> <p>利润: "+二十万利润+"元 / 分成: "+二十万分成+"元 <br> 结算: "+最终二十万+"元</main>"
-            +"<main><b>10w代充价格: "+十万价格+"元</b> <p>利润: "+十万利润+"元 / 分成: "+十万分成+"元 <br> 结算: "+最终十万+"元</main></div>"
-                +"<div><section><label>5w代充价格: "+五万价格+"元</label> <p>利润: "+五万利润+"元 / 分成: "+五万分成+"元 <br> 结算: "+最终五万+"元</section>"
-                    +"<section><label>3w代充价格: "+三万价格+"元</label> <p>利润: "+三万利润+"元 / 分成: "+三万分成+"元 <br> 结算: "+最终三万+"元</section></div></layout>");
-
-                    console.log("40w韩元 = "+四十万汇率+"元");
-                    console.log("30w韩元 = "+三十万汇率+"元");
-                    console.log("20w韩元 = "+二十万汇率+"元");
-                    console.log("10w韩元 = "+十万汇率+"元");
-                    console.log("5w韩元 = "+五万汇率+"元");
-                    console.log("3w韩元 = "+三万汇率+"元");
-
-    </script>
 </head>
+
 <body>
-    <footer><a href="https://ondolife.github.io/1234/">切换手机版</a><p> 2022. <a href="#">韩服游戏代充</a>, Co., Ltd. All rights reserved</footer>
+
+
+
+<layout>
+    <header>
+        <span>
+            韩服游戏代充
+        </span>
+        <div id="header1">
+        当前日期: , 今日汇率:
+    </div>
+    </header>
+<div>
+        <nav>
+            <strong id="s40">40w代充价格:</strong>
+            <p id="p40"> 利润:/ 分成:</p>
+                <menu id="m40"> 结算:</menu>
+            </nav>
+        <nav>
+        <strong id="s30">
+            30w代充价格:
+        </strong> 
+        <p id="p30"> 利润:/ 分成:</p>
+            <menu id="m30">  结算:</menu>
+        </nav>
+    </div>
+<div>
+    <main><b id="s20">20w代充价格:</b> 
+        <p id="p20">利润: / 分成:</p>
+            <menu id="m20"> 结算:</menu>
+        </main>
+        <main>
+            <b id="s10">10w代充价格:</b>
+            <p id="p10">利润: / 分成:</p>
+            <menu id="m10">结算:</menu>
+            </main>
+            </div>
+<div>
+    <section>
+        <label id="s5">5w代充价格:</label>
+        <p id="p5">利润:</p>
+        <menu id="m5">结算:</menu>
+        </section>
+    <section>
+        <label id="s3">3w代充价格:</label>
+        <p id="p3">利润:</p>
+        <menu id="m3">结算:</menu>
+        </section>
+    </div>
+</layout>
+
+
+
+
+    <footer><a href="https://ondolife.github.io/1234/">切换手机版</a>
+        <p> 2022. <a href="#">韩服游戏代充</a>, Co., Ltd. All rights reserved
+    </footer>
 </body>
+
 </html>

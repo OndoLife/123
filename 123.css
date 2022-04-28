@@ -83,7 +83,11 @@ section {
     border-style:solid;
 }
 
+menu{
+    margin: 0px;
+    padding: 0px;
 
+}
 
 strong{
     background: linear-gradient(to right, #d62828,#990d6f);   
