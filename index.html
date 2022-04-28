@@ -74,31 +74,26 @@
             var 最终五万 = 五万价格 - 五万分成
             var 最终三万 = 三万价格 - 三万分成
     
-                    document.getElementById('header1').innerHTML="当前日期: "+currenYear + "年" + month + "月" + day + "日, 今日汇率: 1人民币="+汇率+"韩元";
+                    document.getElementById('header1').innerHTML="当前日期: "+currenYear + "年" + month + "月" + day + "日, 汇率: 1人民币="+汇率+"韩元";
     
                     document.getElementById('s40').innerHTML="40w代充价格: " + 四十万价格 + "元";
-                    document.getElementById('p40').innerHTML="利润: " + 四十万利润 + "元 / 分成: " + 四十万分成 + "元";
-                    document.getElementById('m40').innerHTML="结算: " + 最终四十万 + "元";
+                    document.getElementById('p40').innerHTML="利润: " + 四十万利润 + "元 / 分成: " + 四十万分成 + "元"+"<br>结算: " + 最终四十万 + "元";
+
     
                     document.getElementById('s30').innerHTML="30w代充价格: " + 三十万价格 + "元";
-                    document.getElementById('p30').innerHTML="利润: " + 三十万利润 + "元 / 分成: " + 三十万分成 + "元";
-                    document.getElementById('m30').innerHTML="结算: " + 最终三十万 + "元";
+                    document.getElementById('p30').innerHTML="利润: " + 三十万利润 + "元 / 分成: " + 三十万分成 + "元"+"<br>结算: " + 最终三十万 + "元";
     
                     document.getElementById('s20').innerHTML="20w代充价格: " + 二十万价格 + "元";
-                    document.getElementById('p20').innerHTML="利润: " + 二十万利润 + "元 / 分成: " + 二十万分成 + "元";
-                    document.getElementById('m20').innerHTML="结算: " + 最终二十万 + "元";
+                    document.getElementById('p20').innerHTML="利润: " + 二十万利润 + "元 / 分成: " + 二十万分成 + "元"+"<br>结算: " + 最终二十万 + "元";
     
                     document.getElementById('s10').innerHTML="10w代充价格: " + 十万价格 + "元";
-                    document.getElementById('p10').innerHTML="利润: " + 十万利润 + "元 / 分成: " + 十万分成 + "元";
-                    document.getElementById('m10').innerHTML="结算: " + 最终十万 + "元";
+                    document.getElementById('p10').innerHTML="利润: " + 十万利润 + "元 / 分成: " + 十万分成 + "元"+"<br>结算: " + 最终十万 + "元";
     
                     document.getElementById('s5').innerHTML="5w代充价格: " + 五万价格 + "元";
-                    document.getElementById('p5').innerHTML="利润: " + 五万利润 + "元 / 分成: " + 五万分成 + "元";
-                    document.getElementById('m5').innerHTML="结算: " + 最终五万 + "元";
+                    document.getElementById('p5').innerHTML="利润: " + 五万利润 + "元 / 分成: " + 五万分成 + "元"+"<br>结算: " + 最终五万 + "元";
     
                     document.getElementById('s3').innerHTML="3w代充价格: " + 三万价格 + "元";
-                    document.getElementById('p3').innerHTML="利润: " + 三万利润 + "元 / 分成: " + 三万分成 + "元";
-                    document.getElementById('m3').innerHTML="结算: " + 最终三万 + "元";
+                    document.getElementById('p3').innerHTML="利润: " + 三万利润 + "元 / 分成: " + 三万分成 + "元"+"<br>结算: " + 最终三万 + "元";
     
                     console.log("40w韩元 = " + 四十万汇率 + "元");
                     console.log("30w韩元 = " + 三十万汇率 + "元");
@@ -132,37 +127,31 @@
         <nav>
             <strong id="s40">40w代充价格:</strong>
             <p id="p40"> 利润:/ 分成:</p>
-                <menu id="m40"> 结算:</menu>
             </nav>
         <nav>
         <strong id="s30">
             30w代充价格:
         </strong> 
         <p id="p30"> 利润:/ 分成:</p>
-            <menu id="m30">  结算:</menu>
         </nav>
     </div>
 <div>
     <main><b id="s20">20w代充价格:</b> 
         <p id="p20">利润: / 分成:</p>
-            <menu id="m20"> 结算:</menu>
         </main>
         <main>
             <b id="s10">10w代充价格:</b>
             <p id="p10">利润: / 分成:</p>
-            <menu id="m10">结算:</menu>
             </main>
             </div>
 <div>
     <section>
         <label id="s5">5w代充价格:</label>
         <p id="p5">利润:</p>
-        <menu id="m5">结算:</menu>
         </section>
     <section>
         <label id="s3">3w代充价格:</label>
         <p id="p3">利润:</p>
-        <menu id="m3">结算:</menu>
         </section>
     </div>
 </layout>
